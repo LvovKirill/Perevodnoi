@@ -1,0 +1,43 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int finish(int a) {
+        int p=a/2;
+        int ost = a-2*p;
+        return ost;
+}
+
+int summa(int a) {
+int s=0;
+    while (a != 0) {
+        int r=a;
+        a/= 2;
+        s+=(r-a*2);}
+    return s;
+}
+
+int main() {
+
+int a, b, max = 0, count = 0;
+cin >> a >> b;
+if(a<0){max=a-1;}
+
+for (int i = a; i <= b; i++) {
+    bool point = true;
+    if (finish(abs(i)) != 0) { point = false; }
+    if (i % 10 == 0) { point = false; }
+    if (summa(abs(i)) != 5) { point = false; }
+    if (point) {
+        count++;
+        if (max < i) { max = i; }
+    }
+
+}
+
+if (max == -1) {
+cout << 0 << " " << 0;
+}else cout << count << " " << max;
+
+}

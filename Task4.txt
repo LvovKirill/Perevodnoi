@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <algorithm>
+
+using namespace std;
+
+int x[9999];
+
+void recurs_function(int p, int k, int n){
+        if (!n) {
+            printf("%d", x[0]);
+            for (int i = 1; i < p; i++){ 
+                printf(" %d",x[i]);
+            }
+            printf("\n"); 
+            
+        } else 
+            for (int i = 1; i <= min(k,n); i++){
+                x[p] = i;
+                recurs_function(p+1,i,n-i);
+                
+            } 
+}
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    recurs_function(0,n,n);
+}

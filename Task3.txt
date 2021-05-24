@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+int main(){
+
+ifstream Fin;
+ofstream Fout;
+
+Fin.open ( "input.txt" );
+Fout.open ( "output.txt" );
+
+char cursor, symbol;
+int max=0;
+char max_symbol=0;
+int count=1;
+Fin >> cursor;
+
+while(!Fin.eof()){
+    if ( Fin>>symbol )
+    if(cursor==symbol){
+        count++;
+    }else{
+        if(count>max){
+            max=count;
+            max_symbol=cursor;
+        }
+    count=1;
+    cursor=symbol;
+    }
+}
+
+Fout<<max_symbol<<" "<<max;
+
+Fin.close();
+Fout.close();
+}

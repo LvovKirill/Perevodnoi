@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main(){
+    int a, b, d, v=0, r, g;
+    cin>>a>>b;
+    for (int i=a; i<= b; i++){
+        if ((i%2)==0){           
+            d = 1;
+            r = round(sqrtf(i));
+            for (int j = 2; j < r ; j++){
+                if ((i % j) == 0){
+                    if ((j % 2) == 0){d++;}
+                    g = i / j;
+                    if (((g % 2) == 0) && (j != g)){d++;}
+                    if (d > 3) break;                   
+                }
+            }
+            if (d == 3){
+                v = 1;
+                cout << i << endl;
+            }            
+        }
+    }
+    if (v==0) cout << 0;
+}
